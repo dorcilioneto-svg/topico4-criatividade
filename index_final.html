@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="O Futuro da Educação: o poder do pensamento criativo e das novas tecnologias.">
+<title>O Futuro da Educação | Criatividade × Tecnologia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#f7fafc;
+  --surface:#ffffff;
+  --surface-2:#eef6f3;
+  --ink:#10243e;
+  --muted:#5f6f82;
+  --blue:#2161b1;
+  --blue-dark:#123b70;
+  --green:#20b66b;
+  --green-dark:#10804a;
+  --orange:#ee9b3d;
+  --line:#dce5ed;
+  --shadow:0 18px 55px rgba(18,59,112,.10);
+  --title:'Outfit',sans-serif;
+  --body:'Inter',sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--body);line-height:1.7
+}
+a{color:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+h1,h2,h3,h4{font-family:var(--title);line-height:1.12;letter-spacing:-.035em}
+h1{font-size:clamp(2.8rem,6vw,6.2rem);margin:20px 0;color:var(--ink)}
+h2{font-size:clamp(2rem,4vw,4rem);margin:8px 0 18px}
+h3{font-size:1.25rem}
+
+/* NAV */
+.navbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,250,252,.92);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--line)
+}
+.nav-inner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-family:var(--title);font-weight:800;font-size:1.05rem;text-decoration:none}
+.logo em{font-style:normal;color:var(--green)}
+.nav-links{display:flex;gap:3px;overflow:auto;white-space:nowrap}
+.nav-links a{
+  text-decoration:none;padding:8px 10px;border-radius:8px;
+  color:var(--muted);font-size:.84rem;font-weight:600
+}
+.nav-links a:hover{background:var(--surface-2);color:var(--green-dark)}
+@media(max-width:850px){.nav-links{display:none}}
+
+/* HERO */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 76% 35%,rgba(32,182,107,.15),transparent 24%),
+    radial-gradient(circle at 90% 5%,rgba(33,97,177,.15),transparent 23%),
+    linear-gradient(135deg,#fff,#eff7f5 55%,#edf4fa);
+  border-bottom:1px solid var(--line)
+}
+.hero:before{
+  content:"";position:absolute;width:500px;height:500px;border-radius:50%;
+  left:-310px;bottom:-300px;background:rgba(238,155,61,.09)
+}
+.hero-grid{
+  min-height:calc(100vh - 68px);
+  display:grid;grid-template-columns:1fr .9fr;gap:55px;
+  align-items:center;padding:75px 0
+}
+.badge{
+  display:inline-flex;padding:7px 13px;border-radius:999px;
+  background:#e3f7ec;color:var(--green-dark);
+  font-size:.75rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase
+}
+.hero-copy{font-size:1.12rem;color:var(--muted);max-width:720px}
+.hero-copy strong{color:var(--ink)}
+.actions{display:flex;gap:11px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:11px 18px;border-radius:11px;
+  text-decoration:none;font-weight:700;border:1px solid var(--line);
+  background:white;transition:.2s
+}
+.btn.primary{background:var(--blue-dark);color:#fff;border-color:var(--blue-dark)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(18,59,112,.12)}
+.hero-media{
+  position:relative;background:white;border:1px solid var(--line);
+  border-radius:28px;padding:12px;box-shadow:var(--shadow);transform:rotate(1deg)
+}
+.hero-media img{width:100%;display:block;border-radius:19px}
+.floating{
+  position:absolute;right:-25px;bottom:-25px;max-width:245px;
+  background:var(--ink);color:#fff;padding:18px 20px;border-radius:16px;
+  box-shadow:var(--shadow);font-size:.86rem
+}
+.floating b{display:block;color:#8fe0b4;font-family:var(--title);font-size:1rem;margin-bottom:4px}
+@media(max-width:850px){
+ .hero-grid{grid-template-columns:1fr;min-height:auto;padding:60px 0}
+ .floating{right:10px}
+}
+
+/* SEÇÕES */
+main{padding:85px 0}
+.section{margin-bottom:105px}
+.section-head{max-width:900px;margin-bottom:34px}
+.eyebrow{
+  color:var(--green-dark);font-size:.75rem;font-weight:800;
+  letter-spacing:.13em;text-transform:uppercase
+}
+.lead{color:var(--muted);font-size:1.06rem;max-width:900px}
+.quote{
+  margin-top:30px;background:var(--ink);color:#f8fbff;
+  padding:28px 30px;border-radius:20px;box-shadow:var(--shadow);
+  font-family:var(--title);font-size:1.15rem
+}
+.quote small{display:block;font-family:var(--body);color:#9be4bc;font-size:.78rem;margin-top:8px}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:20px;padding:27px;box-shadow:var(--shadow)
+}
+.icon{
+  width:44px;height:44px;border-radius:13px;display:grid;place-items:center;
+  background:#e5f7ed;color:var(--green-dark);font-family:var(--title);font-weight:800;
+  margin-bottom:18px
+}
+.card.blue .icon{background:#eaf2fb;color:var(--blue)}
+.card.orange .icon{background:#fff1df;color:#b66b15}
+.card h3{color:var(--ink);margin:0 0 9px}
+.card p{color:var(--muted);margin:0}
+@media(max-width:850px){.cards{grid-template-columns:1fr}}
+
+/* CONTRASTE */
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.box{
+  border:1px solid var(--line);border-radius:23px;padding:30px
+}
+.box.old{background:#f0f2f4}
+.box.new{background:linear-gradient(145deg,#effaf4,#edf6fb);border-color:#c9e5d5}
+.box h3{font-size:1.55rem;color:var(--ink);margin:0 0 15px}
+.box ul{color:var(--muted);padding-left:21px;margin:0}
+.box li{margin:7px 0}
+@media(max-width:700px){.dual{grid-template-columns:1fr}}
+
+/* QUADRANTE */
+.quadrant{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  background:#fff;border:1px solid var(--line);border-radius:23px;
+  overflow:hidden;box-shadow:var(--shadow)
+}
+.quad{min-height:215px;padding:35px;border:1px solid var(--line)}
+.quad h3{margin:0 0 9px;color:var(--ink)}
+.quad p{color:var(--muted);margin:0}
+.quad.ideal{
+  position:relative;background:linear-gradient(135deg,#e5f9ed,#f3fbf6)
+}
+.quad.ideal:before{
+  content:"IDEAL";position:absolute;right:20px;top:18px;
+  background:var(--green);color:#fff;font-size:.66rem;font-weight:800;
+  padding:5px 9px;border-radius:999px
+}
+@media(max-width:700px){.quadrant{grid-template-columns:1fr}.quad{min-height:auto}}
+
+/* TRINÔMIO */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.node{
+  padding:30px;background:#fff;border:1px solid var(--line)
+}
+.node:first-child{border-radius:22px 0 0 22px}
+.node:last-child{border-radius:0 22px 22px 0}
+.node span{color:var(--green-dark);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.node h3{margin:8px 0;color:var(--ink)}
+.node p{color:var(--muted);margin:0}
+@media(max-width:700px){
+ .trio{grid-template-columns:1fr}
+ .node:first-child{border-radius:22px 22px 0 0}
+ .node:last-child{border-radius:0 0 22px 22px}
+}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.timeline-item{text-align:center}
+.dot{
+  width:18px;height:18px;border-radius:50%;background:var(--green);
+  margin:5px auto 15px;border:4px solid var(--cream)
+}
+.timeline-card{
+  text-align:left;background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:22px;box-shadow:var(--shadow)
+}
+.timeline-card h3{font-size:1.05rem;color:var(--ink);margin:0 0 8px}
+.timeline-card p{font-size:.9rem;color:var(--muted);margin:0}
+@media(max-width:800px){.timeline{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.timeline{grid-template-columns:1fr}}
+
+/* ESTRATÉGIAS */
+.strategy{
+  display:grid;grid-template-columns:68px 1fr;gap:20px;
+  padding:25px 0;border-bottom:1px solid var(--line)
+}
+.strategy:last-child{border-bottom:0}
+.num{
+  width:55px;height:55px;border-radius:15px;background:var(--blue-dark);
+  color:white;display:grid;place-items:center;font-family:var(--title);font-weight:800
+}
+.strategy h3{margin:0 0 7px;color:var(--ink)}
+.strategy p{margin:0;color:var(--muted);max-width:900px}
+
+/* EVIDÊNCIAS */
+.evidence{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.e-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px}
+.e-bar{width:48px;height:5px;border-radius:99px;background:var(--green);margin-bottom:20px}
+.e-card h3{font-size:1.15rem;margin:0 0 9px}
+.e-card p{color:var(--muted);margin:0}
+.e-card cite{display:block;color:var(--blue);font-size:.78rem;font-style:normal;font-weight:700;margin-top:16px}
+@media(max-width:850px){.evidence{grid-template-columns:1fr}}
+
+/* MÍDIAS */
+.media-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px}
+.media{
+  background:#fff;border:1px solid var(--line);border-radius:23px;
+  overflow:hidden;box-shadow:var(--shadow)
+}
+.media img{width:100%;display:block}
+.media-body{padding:25px}
+.media-body h3{margin:0 0 8px;color:var(--ink)}
+.media-body p{color:var(--muted);margin:0 0 17px}
+.media-link{display:inline-block;color:var(--blue);font-size:.88rem;font-weight:700;margin-top:12px}
+.stack{display:grid;gap:20px}
+audio,video{width:100%;display:block;background:#101010;border-radius:12px}
+@media(max-width:850px){.media-grid{grid-template-columns:1fr}}
+
+/* FINAL */
+.final{
+  background:linear-gradient(135deg,#10243e,#174b82);
+  border-radius:30px;padding:55px;color:#fff;box-shadow:var(--shadow)
+}
+.final .eyebrow{color:#8fe0b4}
+.final h2{color:#fff}
+.final p{color:#dce8f3;max-width:870px}
+.final .btn{color:var(--ink);background:#fff;border:0}
+
+/* FOOTER */
+footer{background:#0b2038;color:#c6d4e2;padding:35px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.credit{font-weight:700;color:#fff}
+.footer-small{font-size:.8rem;margin-top:4px}
+@media(max-width:650px){.footer-inner{display:block}.footer-small:last-child{margin-top:14px}}
+
+.top{
+  position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;
+  background:var(--green);color:#fff;display:grid;place-items:center;
+  font-weight:900;box-shadow:0 8px 25px rgba(0,0,0,.18);z-index:50
+}
+</style>
+</head>
+
+<body id="top">
+
+<div class="navbar">
+  <div class="container nav-inner">
+    <a class="logo" href="#top">Educação <em>×</em> Criatividade</a>
+    <nav class="nav-links">
+      <a href="#paradigma">Paradigma</a>
+      <a href="#criatividade">Criatividade</a>
+      <a href="#tecnologia">Tecnologia</a>
+      <a href="#integracao">Integração</a>
+      <a href="#praticas">Práticas</a>
+      <a href="#midias">Mídias</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="badge">Tech &amp; SaaS · Síntese educacional</span>
+      <h1>O futuro da educação passa pelo pensamento criativo.</h1>
+      <p class="hero-copy">
+        Uma síntese sobre o encontro entre <strong>pensamento criativo, educação e novas tecnologias</strong>,
+        destacando a necessidade de superar a transmissão tradicional e construir ambientes de
+        aprendizagem colaborativos, flexíveis e pedagogicamente orientados.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#paradigma">Explorar a síntese</a>
+        <a class="btn" href="#midias">Ver infográfico e mídias</a>
+      </div>
+    </div>
+
+    <div class="hero-media">
+      <img src="https://raw.githubusercontent.com/dorcilioneto-svg/topico4-criatividade/main/Futuro_da_Educa%C3%A7%C3%A3o_e_Criatividade.png"
+           alt="O Futuro da Educação: o poder do pensamento criativo e das novas tecnologias">
+      <div class="floating">
+        <b>Ideia central</b>
+        Tecnologia não deve ser apenas incorporada: precisa estar articulada ao currículo e à intenção pedagógica.
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="section" id="paradigma">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">01 · Novo paradigma</div>
+    <h2>Da memorização à adaptação diante da complexidade</h2>
+    <p class="lead">
+      A síntese do estudo de Guzmán Atehortúa et al. (2026) aponta para a necessidade
+      de alinhar o uso das tecnologias ao currículo e de promover o pensamento divergente.
+      Em uma sociedade marcada por mudanças aceleradas, desafios complexos e adaptação contínua,
+      a educação precisa ampliar suas formas de ensinar e aprender.
+    </p>
+  </div>
+
+  <div class="dual">
+    <article class="box old">
+      <h3>O modelo tradicional</h3>
+      <ul>
+        <li>Foco na memorização.</li>
+        <li>Repetição de conteúdo.</li>
+        <li>Isolamento do aluno.</li>
+        <li>Transmissão de conhecimentos como eixo predominante.</li>
+      </ul>
+    </article>
+    <article class="box new">
+      <h3>A realidade contemporânea</h3>
+      <ul>
+        <li>Mudanças aceleradas.</li>
+        <li>Desafios socioculturais complexos.</li>
+        <li>Adaptação contínua.</li>
+        <li>Curiosidade, flexibilidade mental e pensamento divergente.</li>
+      </ul>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="criatividade">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">02 · Fundamentação teórica</div>
+    <h2>Criatividade é uma competência que pode ser desenvolvida</h2>
+    <p class="lead">
+      A fundamentação apresentada reúne autores que ajudam a deslocar a criatividade
+      da ideia de genialidade inata para uma capacidade educável, intencional e relacionada
+      à resolução de problemas.
+    </p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="icon">H</div>
+      <h3>Hussey (2017)</h3>
+      <p>Iniciativa, autoconfiança e criação de pensamentos incomuns como elementos do pensamento criativo.</p>
+    </article>
+    <article class="card blue">
+      <div class="icon">G</div>
+      <h3>Guilford (1967)</h3>
+      <p>A criatividade é relacionada à capacidade de produzir alternativas e trabalhar com pensamento divergente.</p>
+    </article>
+    <article class="card orange">
+      <div class="icon">DB</div>
+      <h3>De Bono (1985; 1994)</h3>
+      <p>A técnica dos Seis Chapéus estrutura modos de pensar; o Chapéu Verde enfatiza geração de ideias.</p>
+    </article>
+    <article class="card">
+      <div class="icon">T</div>
+      <h3>Teriggi (1998)</h3>
+      <p>Contribui para a compreensão da criatividade como capacidade que não pertence exclusivamente a poucos sujeitos.</p>
+    </article>
+    <article class="card blue">
+      <div class="icon">S</div>
+      <h3>Sátiro (2018)</h3>
+      <p>Relaciona criatividade ao desenvolvimento e à resolução de problemas socioculturais.</p>
+    </article>
+    <article class="card orange">
+      <div class="icon">C</div>
+      <h3>Csikszentmihalyi (1999) · Trillas (2018)</h3>
+      <p>A inovação criativa depende da interação entre indivíduo, conhecimento cultural e campo social.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="tecnologia">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">03 · Tecnologia e sentido pedagógico</div>
+    <h2>Usar tecnologia não é o mesmo que integrar tecnologia</h2>
+    <p class="lead">
+      O enfoque sistêmico e as referências apresentadas criticam o uso superficial das TICs.
+      O impacto educacional depende da articulação entre ferramenta, currículo, objetivos
+      de aprendizagem e interação.
+    </p>
+  </div>
+
+  <div class="quadrant">
+    <article class="quad">
+      <h3>Transmissão passiva</h3>
+      <p>Baixa integração pedagógica e baixa densidade tecnológica. O aluno permanece predominantemente receptor.</p>
+    </article>
+    <article class="quad">
+      <h3>Rapidez sem orientação</h3>
+      <p>Ferramentas superficiais podem ampliar a velocidade sem produzir impacto educacional sustentável.</p>
+    </article>
+    <article class="quad">
+      <h3>Aprendizagem analógica</h3>
+      <p>Práticas válidas, porém limitadas quando se busca ampliar a colaboração e a interação em rede.</p>
+    </article>
+    <article class="quad ideal">
+      <h3>Integração pedagógica</h3>
+      <p>Tecnologia articulada ao currículo, à intencionalidade e à construção colaborativa do conhecimento.</p>
+    </article>
+  </div>
+
+  <div class="quote">
+    “O sentido pedagógico é o que dá força.”
+    <small>Jaramillo (2009) — a tecnologia precisa estar articulada ao currículo.</small>
+  </div>
+</div>
+</section>
+
+<section class="section" id="integracao">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">04 · Ecossistema criativo</div>
+    <h2>Criatividade + Educação + TICs</h2>
+    <p class="lead">
+      O trinômio apresentado na síntese transforma a tecnologia de uma ferramenta de acesso
+      individual em uma infraestrutura de apoio ao aprendizado colaborativo e dinâmico.
+    </p>
+  </div>
+
+  <div class="trio">
+    <article class="node">
+      <span>01 · Criatividade</span>
+      <h3>Inovação e resolução de problemas</h3>
+      <p>Geração de ideias e alternativas para enfrentar problemas e desafios socioculturais.</p>
+    </article>
+    <article class="node">
+      <span>02 · Educação</span>
+      <h3>Currículo e intencionalidade</h3>
+      <p>Define objetivos e dá sentido pedagógico às experiências de aprendizagem.</p>
+    </article>
+    <article class="node">
+      <span>03 · TICs</span>
+      <h3>Aceleração e colaboração</h3>
+      <p>Plataformas e redes funcionam como pontes estruturais entre estudantes.</p>
+    </article>
+  </div>
+
+  <div class="quote">
+    Mais do que ferramentas de acesso individual, as plataformas digitais podem funcionar como pontes entre mentes.
+    <small>Crook (1994) · Dillenbourg (1999)</small>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">05 · Três dimensões da inovação</div>
+    <h2>O criativo não é resultado de uma ação isolada</h2>
+    <p class="lead">
+      A inovação criativa emerge da relação entre a iniciativa individual, o domínio cultural
+      e o campo social que participa da validação das novas ideias.
+    </p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <div class="icon">01</div>
+      <h3>Indivíduo</h3>
+      <p>Provoca mudanças e gera variações por meio de iniciativa, autoconfiança e pensamentos incomuns.</p>
+    </article>
+    <article class="card blue">
+      <div class="icon">02</div>
+      <h3>Domínio cultural</h3>
+      <p>Conhecimento prévio e multidisciplinar que fornece repertório para a inovação.</p>
+    </article>
+    <article class="card orange">
+      <div class="icon">03</div>
+      <h3>Campo social</h3>
+      <p>Instituições e pessoas que participam da validação das ideias e da inovação.</p>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">06 · Formação</div>
+    <h2>O pensamento criativo ao longo do percurso educacional</h2>
+  </div>
+
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="dot"></div>
+      <div class="timeline-card">
+        <h3>Educação Básica</h3>
+        <p><b>Expressão cotidiana:</b> estimular expressões originais diante dos desafios diários.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="dot"></div>
+      <div class="timeline-card">
+        <h3>Educação Escolar</h3>
+        <p><b>Clima de risco:</b> adotar uma mentalidade aberta que permita aprender com o erro.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="dot"></div>
+      <div class="timeline-card">
+        <h3>Ensino Médio</h3>
+        <p><b>Protagonismo dialógico:</b> centralizar o aluno por meio de linguagem e ensino problematizador.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="dot"></div>
+      <div class="timeline-card">
+        <h3>Ensino Universitário</h3>
+        <p><b>Construção social dual:</b> equilíbrio entre lógica e emoção diante dos desafios contemporâneos.</p>
+      </div>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="praticas">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">07 · Aplicação prática</div>
+    <h2>Três estratégias para estimular a criatividade</h2>
+  </div>
+
+  <article class="strategy">
+    <div class="num">01</div>
+    <div>
+      <h3>Provocação deliberada</h3>
+      <p>Aplicar o Chapéu Verde de De Bono para estimular deliberadamente a geração de ideias novas e alternativas, sem julgamento prévio.</p>
+    </div>
+  </article>
+  <article class="strategy">
+    <div class="num">02</div>
+    <div>
+      <h3>Lateral Visual Thinking</h3>
+      <p>Combinar design thinking e apropriação digital para conectar a criatividade dos alunos aos planos de estudo.</p>
+    </div>
+  </article>
+  <article class="strategy">
+    <div class="num">03</div>
+    <div>
+      <h3>Ambientes conectivos</h3>
+      <p>Utilizar fóruns digitais e plataformas de interação como práticas acadêmicas para consolidar aprendizagem significativa.</p>
+    </div>
+  </article>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">08 · Ambiente de aprendizagem</div>
+    <h2>O que precisa mudar dentro da escola?</h2>
+  </div>
+
+  <div class="evidence">
+    <article class="e-card">
+      <div class="e-bar"></div>
+      <h3>Ambiente seguro</h3>
+      <p>Um espaço psicológico que concede permissão explícita para o erro e encoraja a experimentação.</p>
+      <cite>Moura de Carvalho et al. (2021)</cite>
+    </article>
+    <article class="e-card">
+      <div class="e-bar"></div>
+      <h3>Mentalidade aberta</h3>
+      <p>Flexibilidade contínua de docentes e alunos diante da ambiguidade e das mudanças.</p>
+      <cite>Clima de risco e aprendizagem com o erro</cite>
+    </article>
+    <article class="e-card">
+      <div class="e-bar"></div>
+      <h3>Aluno protagonista</h3>
+      <p>Deslocamento do professor transmissor para o aluno como co-construtor de soluções práticas.</p>
+      <cite>Ecossistema criativo</cite>
+    </article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="midias">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">09 · Conteúdo multimídia</div>
+    <h2>Veja, ouça e assista</h2>
+    <p class="lead">
+      O conteúdo visual e audiovisual complementa a síntese e apresenta o tema em diferentes linguagens.
+    </p>
+  </div>
+
+  <div class="media-grid">
+    <article class="media">
+      <img src="https://raw.githubusercontent.com/dorcilioneto-svg/topico4-criatividade/main/Futuro_da_Educa%C3%A7%C3%A3o_e_Criatividade.png"
+           alt="Infográfico O Futuro da Educação: o poder do pensamento criativo e das novas tecnologias">
+      <div class="media-body">
+        <h3>Infográfico</h3>
+        <p>O pensamento criativo na escola, o Chapéu Verde, inovação, novas tecnologias, colaboração e propósito pedagógico.</p>
+        <a class="media-link" target="_blank" rel="noopener"
+           href="https://github.com/dorcilioneto-svg/topico4-criatividade/blob/main/Futuro_da_Educa%C3%A7%C3%A3o_e_Criatividade.png">
+           Abrir infográfico →
+        </a>
+      </div>
+    </article>
+
+    <div class="stack">
+      <article class="media">
+        <div class="media-body">
+          <h3>Áudio</h3>
+          <p>Criatividade humana contra a perfeição lógica.</p>
+          <audio controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/dorcilioneto-svg/topico4-criatividade/main/Criatividade_humana_contra_a_perfei%C3%A7%C3%A3o_l%C3%B3gica.m4a" type="audio/mp4">
+            Seu navegador não suporta áudio.
+          </audio>
+          <a class="media-link" target="_blank" rel="noopener"
+             href="https://github.com/dorcilioneto-svg/topico4-criatividade/blob/main/Criatividade_humana_contra_a_perfei%C3%A7%C3%A3o_l%C3%B3gica.m4a">
+             Abrir áudio →
+          </a>
+        </div>
+      </article>
+
+      <article class="media">
+        <div class="media-body">
+          <h3>Vídeo</h3>
+          <p>Como a tecnologia transforma o pensamento criativo.</p>
+          <video controls preload="metadata">
+            <source src="https://raw.githubusercontent.com/dorcilioneto-svg/topico4-criatividade/main/Como_a_Tecnologia_Transforma_o_Pensamento_Criativo.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo.
+          </video>
+          <a class="media-link" target="_blank" rel="noopener"
+             href="https://github.com/dorcilioneto-svg/topico4-criatividade/blob/main/Como_a_Tecnologia_Transforma_o_Pensamento_Criativo.mp4">
+             Abrir vídeo →
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <div class="final">
+    <div class="eyebrow">10 · Conclusão</div>
+    <h2>O desafio não é escolher entre tecnologia e criatividade. É integrá-las pedagogicamente.</h2>
+    <p>
+      A síntese aponta para uma educação capaz de preparar estudantes para a cibersociedade:
+      ambientes seguros, pensamento divergente, protagonismo, colaboração e tecnologias
+      utilizadas com propósito. O foco deixa de ser apenas consumir informação e passa
+      a ser construir conhecimento, produzir ideias e resolver problemas.
+    </p>
+    <a class="btn" href="#top">Voltar ao início</a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <div class="credit">Conteúdo gerado por IA sob supervisão de Dorcilio Ramos Sodre Neto.</div>
+      <div class="footer-small">Síntese organizada a partir dos materiais fornecidos.</div>
+    </div>
+    <div class="footer-small">Pensamento Criativo · Educação · Tecnologia</div>
+  </div>
+</footer>
+
+<a class="top" href="#top" aria-label="Voltar ao topo">↑</a>
+
+</body>
+</html>
